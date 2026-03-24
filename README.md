@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 A complete, production-ready premium air duct cleaning service website built with Next.js 14, MongoDB, and Tailwind CSS. Features online booking, email notifications, customer dashboard, and a stunning premium UI.
 
 ## 🚀 Live Demo
-[View Demo](https://premium.pureflowair.demo)
+[View Demo](https://air-duct-cleaning-services-website-premium-j36l6g04m.vercel.app/)
 
 ## 📋 Features
 
