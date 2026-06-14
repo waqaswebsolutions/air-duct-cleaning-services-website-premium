@@ -148,8 +148,8 @@ export default function GalleryPage() {
   const [lightboxOpen, setLightboxOpen] = useState(null)
   const [viewMode, setViewMode] = useState("grid")
 
-  const filteredImages = selectedCategory === "All" 
-    ? galleryImages 
+  const filteredImages = selectedCategory === "All"
+    ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory)
 
   const featuredImages = filteredImages.filter(img => img.featured)
@@ -199,17 +199,16 @@ export default function GalleryPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-gold text-primary shadow-lg shadow-gold/20'
-                    : 'bg-white/5 text-white/70 hover:bg-gold/20 hover:text-gold border border-white/10'
-                }`}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${selectedCategory === category
+                  ? 'bg-gold text-primary shadow-lg shadow-gold/20'
+                  : 'bg-white/5 text-white/70 hover:bg-gold/20 hover:text-gold border border-white/10'
+                  }`}
               >
                 {category}
               </button>
             ))}
           </div>
-          
+
           {/* View Toggle */}
           <div className="flex gap-2">
             <button
@@ -243,10 +242,12 @@ export default function GalleryPage() {
                   onClick={() => setLightboxOpen(image)}
                 >
                   <div className="relative h-80">
-                    <img
+                    <Image
                       src={image.image}
                       alt={image.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-700"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -281,10 +282,12 @@ export default function GalleryPage() {
             >
               <div className={`bg-white/5 backdrop-blur rounded-xl border border-white/10 overflow-hidden hover:border-gold/30 hover:scale-[1.02] transition-all duration-300 ${viewMode === "list" ? 'flex w-full' : ''}`}>
                 <div className={`relative overflow-hidden ${viewMode === "list" ? 'w-48 h-48 flex-shrink-0' : 'h-64'}`}>
-                  <img
+                  <Image
                     src={image.image}
                     alt={image.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <FiZoomIn className="text-white text-2xl" />
@@ -371,10 +374,12 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative h-[60vh] md:h-[70vh] bg-black/50">
-                <img
+                <Image
                   src={lightboxOpen.image}
                   alt={lightboxOpen.title}
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 90vw"
                 />
               </div>
               <div className="p-6">

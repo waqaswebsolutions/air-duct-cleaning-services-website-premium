@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiStar, FiCheck, FiClock, FiShield, FiAward, FiArrowRight, FiWind, FiHome, FiUsers } from 'react-icons/fi'
@@ -27,14 +28,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image
             src="https://images.unsplash.com/photo-1581092160607-ee8d8d3b5c9c?w=1920&h=1080&fit=crop"
             alt="Clean air ducts"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/85"></div>
         </div>
-        
+
         <div className="relative z-10 container-premium py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -67,7 +70,7 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-white/80 text-sm"><FiCheck className="text-gold text-sm" /> 100% Guarantee</div>
               </div>
             </motion.div>
-            
+
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
               <div className="bg-primary/40 backdrop-blur-md rounded-2xl p-6 border border-gold/30">
                 <div className="text-center">
@@ -107,7 +110,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Elite Air Quality Solutions</h2>
             <p className="text-white/70 max-w-2xl mx-auto text-sm">Experience the highest standard of professional duct cleaning</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: FiWind, title: 'Elite Duct Cleaning', price: '$599', desc: 'Complete system cleaning with HEPA filtration', features: ['NADCA Certified', 'HEPA Vacuum', 'Sanitization'], delay: 0 },
@@ -160,7 +163,13 @@ export default function Home() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5 }}>
-              <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=500&fit=crop" alt="Professional technician" className="rounded-2xl shadow-2xl border border-gold/30" />
+              <Image
+                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=500&fit=crop"
+                alt="Professional technician"
+                width={600}
+                height={500}
+                className="rounded-2xl shadow-2xl border border-gold/30"
+              />
             </motion.div>
           </div>
         </div>
