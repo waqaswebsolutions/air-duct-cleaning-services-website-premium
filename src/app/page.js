@@ -4,6 +4,20 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiStar, FiCheck, FiClock, FiShield, FiAward, FiArrowRight, FiWind, FiHome, FiUsers } from 'react-icons/fi'
 
+
+
+
+export const metadata = {
+  title: "Air Duct Cleaning Website - Premium | Muhammad Waqas",
+  description: "This application is made for Air Duct Cleaning Business who are missing their online leads because everyone searches on Google before hiring someone for a service.",
+  keywords: "next.js, react, web development, air duct cleaning website, startup website, website designing, e-commerce, dashboard, mongodb",
+  authors: [{ name: "Muhammad Waqas" }],
+  openGraph: {
+    title: "Air Duct Cleaning",
+    description: "This application is made for Air Duct Cleaning Business who are missing their online leads because everyone searches on Google before hiring someone for a service.",
+    type: "website",
+  },
+};
 export default function Home() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
